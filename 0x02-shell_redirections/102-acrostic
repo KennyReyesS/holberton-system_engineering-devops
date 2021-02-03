@@ -1,0 +1,2 @@
+#!/bin/bash
+cat Acrostic | cut -b -1 | tr -d "\n" | sort
