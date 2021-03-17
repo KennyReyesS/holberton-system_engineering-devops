@@ -1,0 +1,55 @@
+.TH _PRINTF() "2021-03-16" "V.1.0" "_printf() man page"
+
+.SH NAME
+_printf()  \- version for Holberton
+
+.SH SYNOPSIS
+
+.B #include "holberton.h"
+.PP
+.B _printf (const char *format, ...);
+
+.SH DESCRIPTION
+Writes the output using the format string to stdout.
+
+Printf takes a variable number of parameters. The first parameter is permanent and is the format string.
+
+Printf is called with as many parameters as there are marks in the format string plus one (the format string itself)
+
+.SH RETURN VALUE
+These functions return the number of characters printed.
+
+.SH THE FLAG CHARACTERS
+'%' is followed by one the following flags.
+
+.SH c
+Print the character given.
+.PP
+For example
+_printf("%c",'H');
+.SH s
+Print the string given.
+.PP
+For example
+_printf("%s", "Hello World");
+.SH %
+If the consecutive of the flag '%' is '%' print '%'.
+.PP
+For example
+_printf("%%");
+.SH d and i
+Print a integer given.
+.PP
+For example
+_printf("%d", 20);
+.SH b
+prints numbers in binary recursively.
+.PP
+For example
+_printf("%b\n", 98);
+
+.SH OPTIONS
+No options
+
+.SH AUTHOR
+_printf() was written  by  Manuel Condori and Kenny Reyes.
