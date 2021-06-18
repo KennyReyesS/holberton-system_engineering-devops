@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# This script is displaying "Holberton School" 10 times
+#+ using until loop.
+
+count=0
+endcount=10
+
+until [ $count -ge $endcount ]
+do
+	echo "Holberton School"
+	let count=$count+1
+done
