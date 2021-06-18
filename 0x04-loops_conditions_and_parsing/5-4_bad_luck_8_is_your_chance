@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# This script loops from 1 to 10 and:
+# -Displays bad luck for the 4th loop iteration.
+# -Displays good luck for the 8th loop iteration.
+# -Displays Holberton School for the other iterations
+
+count=1
+endcount=10
+while [ $count -le $endcount ]
+do
+	if [ $count -eq 4 ]
+	then
+	echo "bad luck"
+
+	elif [ $count -eq 8 ]
+	then
+	echo "good luck"
+
+	else
+	    echo "Holberton School"
+	fi
+	let count=$count+1
+done
