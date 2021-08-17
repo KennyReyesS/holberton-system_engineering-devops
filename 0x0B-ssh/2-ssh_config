@@ -34,12 +34,11 @@ Host *
 #   ConnectTimeout 0
 #   StrictHostKeyChecking ask
 #   IdentityFile ~/.ssh/identity
-#   IdentityFile ~/.ssh/holberton
+#   IdentityFile ~/.ssh/id_rsa
 #   IdentityFile ~/.ssh/id_dsa
-#   IdentityFile ~/.ssh/id_ecdsa
-#   IdentityFile ~/.ssh/id_ed25519
+    IdentityFile ~/.ssh/holberton
 #   Port 22
-#   Protocol 2
+#   Protocol 2,1
 #   Cipher 3des
 #   Ciphers aes128-ctr,aes192-ctr,aes256-ctr,arcfour256,arcfour128,aes128-cbc,3des-cbc
 #   MACs hmac-md5,hmac-sha1,umac-64@openssh.com,hmac-ripemd160
@@ -54,7 +53,4 @@ Host *
     HashKnownHosts yes
     GSSAPIAuthentication yes
     GSSAPIDelegateCredentials no
-#
-# Google Compute Engine times out connections after 10 minutes of inactivity.
-# Keep alive ssh connections by sending a packet every 2 minutes.
-ServerAliveInterval 120
+    ServerAliveInterval 120
