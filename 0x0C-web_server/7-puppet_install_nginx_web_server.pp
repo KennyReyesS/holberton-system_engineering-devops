@@ -1,7 +1,29 @@
 #!/usr/bin/env bash
 # Configuring Nginx with puppet
+
+exec { 'sudo apt-get update':
+  path      => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+  logoutput => on_failure
+}
+
+exec { 'sudo apt-get -y install nginx':
+  path => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+}
+
 package {'nginx':
   ensure  => installed,
+}
+
+exec { 'echo "Holberton School" > index.html':
+  path => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+}
+
+exec { 'sudo mv index.html /var/www/html/':
+  path => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+}
+
+exec { 'sudo service nginx start':
+  path => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
 }
 
 file {'/var/www/html/index.html':
