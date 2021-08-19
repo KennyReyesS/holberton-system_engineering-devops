@@ -40,6 +40,10 @@ exec { 'sudo service nginx restart':
   path => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
 }
 
+exec { 'curl 34.139.28.87/':
+  path => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+}
+
 service {'nginx':
   ensure  => running,
 }
