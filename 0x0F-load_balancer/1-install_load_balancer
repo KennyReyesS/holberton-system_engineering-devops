@@ -21,4 +21,4 @@ backend http_back
    server 2805-web-01 34.139.28.87:80 check
    server 2805-web-02 54.164.112.178:80 check
 EOF
-sudo service haproxy restart
+sudo service haproxy start
