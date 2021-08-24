@@ -14,3 +14,4 @@ sudo sed -i "46i \\\n\terror_page 404 /custom_404.html;\n\tlocation = /custom_40
 my_string="\\\n\tadd_header X-Served-By $HOSTNAME;"
 sudo sed -i "/server_name_;/a $my_string" /etc/nginx/sites_available/default
 sudo service nginx restart
+sudo service nginx reload
