@@ -13,5 +13,6 @@ echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custom_404.html
 sudo sed -i "46i \\\n\terror_page 404 /custom_404.html;\n\tlocation = /custom_404.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}" /etc/nginx/sites-available/default
 my_string="\\\n\tadd_header X-Served-By $HOSTNAME;"
 sudo sed -i "/server_name_;/a $my_string" /etc/nginx/sites_available/default
+sudo service nginx start
 sudo service nginx restart
 sudo service nginx reload
