@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Configure Nginx so that its HTTP response contains a custom header (on web-01 and web-02)
+# - The name of the custom HTTP header must be X-Served-By
+# - The value of the custom HTTP header must be the hostname of the server Nginx is running on
+# Write 0-custom_http_response_header so that it configures a brand new Ubuntu machine to the requirements asked in this task
+# - Ignore SC2154 for shellcheck
+sudo apt-get update
+sudo apt-get install nginx
+echo "Holberton School" | sudo tee /var/www/html/index.html
+sudo sed -i "43i \\\tlocation /redirect_me {\n\t\t return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n" /etc/nginx/sites_available/default
+echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custom_404.html
+sudo sed -i "46i \\\terror_page 404 /custom_404.html;\n\tlocation = /custom_404.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}" /etc/nginx/sites-available/default
+my_string="\\\n\tadd_header X-Served-By $HOSTNAME;"
+sudo sed -i "37i $my_string" /etc/nginx/sites_available/default
+sudo service nginx restart
