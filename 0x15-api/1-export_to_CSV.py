@@ -32,4 +32,4 @@ if __name__ == "__main__":
             employee_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
         for k in todo_dict:
             employee_writer.writerow(
-                [k['userId'], USERNAME, k['completed'], k['title']])
+                [k.get('userId'), USERNAME, k.get('completed'), k.get('title')])
