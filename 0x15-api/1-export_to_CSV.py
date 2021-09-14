@@ -4,10 +4,9 @@ Using what you did in the task #0, extend your Python script
 to export data in the CSV format.
 """
 
-
+import csv
 import requests
 from sys import argv
-import csv
 
 
 if __name__ == "__main__":
@@ -32,4 +31,5 @@ if __name__ == "__main__":
             employee_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
         for k in todo_dict:
             employee_writer.writerow(
-                [k.get('userId'), USERNAME, k.get('completed'), k.get('title')])
+                [k.get('userId'),
+                 USERNAME, k.get('completed'), k.get('title')])
