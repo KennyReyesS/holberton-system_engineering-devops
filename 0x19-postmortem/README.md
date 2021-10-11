@@ -11,7 +11,8 @@ Looking through the configuration files we discovered that the server was listen
 ## Timeline:
 * August 26 ~ 5:00 PM: After configuring the server we realized that we could not curl to port 0:80.
 * August 26 ~ 5:05 PM: We first checked if the nginx service was running perfectly with the ps aux command.
-* August 26 ~ 5:10 PM: We check that the path of the html file of our server configuration exists.
+* August 26 ~ 5:10 PM: We check that the path of the html file of our server configuration exists (/etc/nginx/sites-available/default).
+* August 26 ~ 5:11 PM: We try to restart the Nginx service with sudo service nginx restart, in case the configuration changes have not been updated.
 * August 26 ~ 5:15 PM: We checked the default file in the /etc/nginx/sites-available/ path and made a symbolic link to the /etc/nginx/sites-enable/ path.
 * August 26 ~ 5:18 PM: We checked the default file in the path /etc/nginx/sites-enable/ and we found that in listen it was listening on port 8080 and not on 80.
 * August 26 ~ 5:19 PM: We decided to change all listen to 80 and restart the nginx service with the new port, using curl 0:80 it showed us the html we were looking for.
