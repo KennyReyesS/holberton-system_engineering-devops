@@ -18,7 +18,7 @@ Looking through the configuration files we discovered that the server was listen
 * August 26 ~ 5:19 PM: We decided to change all listen to 80 and restart the nginx service with the new port, using curl 0:80 it showed us the html we were looking for.
 
 ## Root cause and resolution:
-When configuring the new server for the first time they copied the configuration of a server that served on port 8080, we discovered this error when we realized that the default file (/etc/nginx/sites-enable/) was listening on only port 8080 so we decided to create a script that changes the 8080 to 80 in the default nginx file and restart the service for the changes to take effect.
+By default, Nginx HTTP server listens for incoming connection and binds on port 80, which represents the standard web port in this case it seems like when configuring the new server for the first time they copied the configuration of a server that served on port 8080, we discovered this error when after making the symbolic link and we realized that the default file (/etc/nginx/sites-enable/default) was listening on only port 8080 so we decided to create a script that changes the 8080 to 80 in the default nginx file and restart the service for the changes to take effect.
 
 ## Corrective and preventative measures:
 The configurations of new servers should be automated to avoid having basic errors and save time, it is recommended to create scripts that make the basic configurations of a new server.
